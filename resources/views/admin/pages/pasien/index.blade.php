@@ -27,8 +27,8 @@
                                     <td>{{ $pasien->nama_pasien }}</td>
                                     <td>{{ $pasien->nik }}</td>
                                     <td>
-                                        {{-- <a href="{{ route('register.pasien', $pasien->no_rm) }}" class="btn btn-info btn-sm"> --}}
-                                        <a href="#" class="btn btn-info btn-sm">
+                                        <a href="{{ url('/registrasi/create', $pasien->no_rm) }}"
+                                            class="btn btn-info btn-sm">
                                             <i class="fa fa-picture-o">Registrasi</i>
                                         </a>
                                     </td>

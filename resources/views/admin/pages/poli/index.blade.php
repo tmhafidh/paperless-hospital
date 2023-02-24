@@ -27,7 +27,7 @@
                                         <a href="{{ Route('poli.edit', $poli->id_poli) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-picture-o">Edit</i>
                                         </a>
-                                        <a href="{{ Route('poli.deletep', $poli->id_poli) }}" class="btn btn-sm btn-danger"
+                                        <a href="{{ Route('poli.delete', $poli->id_poli) }}" class="btn btn-sm btn-danger"
                                             onclick="return confirm('yakin?');">Delete</a>
                                     </td>
                                 </tr>

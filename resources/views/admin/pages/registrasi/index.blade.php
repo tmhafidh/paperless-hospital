@@ -6,30 +6,35 @@
         <div class="col-12">
             <div class="card recent-sales overflow-auto">
                 <div class="card-body">
-                    <h4 class="card-title">Data Dokter</h4>
-                    <a href="{{ route('dokter.create') }}" class="btn btn-info btn-sm">
-                        <i class="fa fa-picture-o">Tambah Data Dokter</i>
+                    <h4 class="card-title">Data Registrasi</h4>
+                    <a href="{{ route('registrasi.create') }}" class="btn btn-info btn-sm">
+                        <i class="fa fa-picture-o">Tambah Data registrasi</i>
                     </a>
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr>
-                                <th scope="col">Kode Dokter</th>
-                                <th scope="col">Nama</th>
+                                <th scope="col">No. Rekam Medik</th>
+                                <th scope="col">No. Registrasi</th>
+                                <th scope="col">No. Rawat</th>
                                 <th scope="col">Poli</th>
-                                <th scope="col">Act</th>
+                                <th scope="col">Tanggal</th>
+                                <th>act</th>
                         </thead>
                         <tbody>
-                            @forelse ($dokters as $dokter)
+                            @forelse ($registrasis as $registrasi)
                                 <tr>
-                                    <td>{{ $dokter->kd_dokter }}</td>
-                                    <td>{{ $dokter->nm_dokter }}</td>
-                                    <td>{{ $dokter->poli->nm_poli }}</td>
+                                    <td>{{ $registrasi->no_rm }}</td>
+                                    <td>{{ $registrasi->no_registrasi }}</td>
+                                    <td>{{ $registrasi->no_rawat }}</td>
+                                    <td>{{ $registrasi->id_poli }}</td>
+                                    <td>{{ $registrasi->tgl_registrasi }}</td>
+
                                     <td>
-                                        <a href="{{ route('dokter.edit', $dokter->kd_dokter) }}"
+                                        <a href="{{ route('registrasi.edit', $registrasi->no_rawat) }}"
                                             class="btn btn-primary btn-sm">
                                             <i class="fa fa-picture-o">Edit</i>
                                         </a>
-                                        <a href="{{ route('dokter.delete', $dokter->kd_dokter) }}"
+                                        <a href="{{ route('registrasi.delete', $registrasi->no_rawat) }}"
                                             class="btn btn-sm btn-danger" onclick="return confirm('yakin?');">Delete</a>
                                     </td>
                                 </tr>

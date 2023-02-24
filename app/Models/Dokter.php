@@ -13,9 +13,13 @@ class Dokter extends Model
 
     protected $primaryKey = 'kd_dokter';
 
+    public $incrementing = false;
+
     protected $fillable = [
+        'kd_dokter',
         'nm_dokter',
-        'id_poli',
+        'id_poli'
+
     ];
 
 

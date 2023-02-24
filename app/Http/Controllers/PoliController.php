@@ -90,7 +90,6 @@ class PoliController extends Controller
 
         $poli = Poli::findOrFail($id_poli);
         $poli->update([
-            // 'id_poli' => $request['id_poli'],
             'nm_poli' => $request['nm_poli'],
         ]);
 

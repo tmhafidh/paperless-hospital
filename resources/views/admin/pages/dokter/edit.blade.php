@@ -5,18 +5,18 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Edit Data Pasien ({{ $pasien->nama_pasien }})</h5>
-                    <form action="{{ Route('pasien.update', $pasien->no_rm) }}" method="POST">
+                    <h5 class="card-title">Edit Data dokter ({{ $dokter->nama_dokter }})</h5>
+                    <form action="{{ Route('dokter.update', $dokter->kd_dokter) }}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">No. Rekam Medik</label>
+                            <label class="col-sm-2 col-form-label">Kode Dokter</label>
                             <div class="col-sm-10">
-                                <input type="text" name="no_rm"
-                                    value="{{ old('no_rm') ? old('no_rm') : $pasien->no_rm }}"
-                                    class="form-control @error('no_rm') is-invalid @enderror">
+                                <input type="text" name="kd_dokter"
+                                    value="{{ old('kd_dokter') ? old('kd_dokter') : $dokter->kd_dokter }}"
+                                    class="form-control @error('kd_dokter') is-invalid @enderror">
                             </div>
-                            @error('no_rm')
+                            @error('_dokter')
                                 <div class="text-muted">
                                     {{ $message }}
                                 </div>
@@ -25,30 +25,31 @@
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
-                                <input type="text" name="nama_pasien"
-                                    value="{{ old('nama_pasien') ? old('nama_pasien') : $pasien->nama_pasien }}"
-                                    class="form-control @error('nama_pasien') is-invalid @enderror">
+                                <input type="text" name="nm_dokter"
+                                    value="{{ old('nm_dokter') ? old('nm_dokter') : $dokter->nm_dokter }}"
+                                    class="form-control @error('nm_dokter') is-invalid @enderror">
                             </div>
-                            @error('nama_pasien')
+                            @error('nm_dokter')
                                 <div class="text-muted">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">NIK</label>
+                            <label class="col-sm-2 col-form-label">Poli</label>
                             <div class="col-sm-10">
-                                <input type="number" name="nik" value="{{ old('nik') ? old('nik') : $pasien->nik }}"
-                                    class="form-control @error('nik') is-invalid @enderror">
+                                <select type="text" name="id_poli" class="form-control">
+                                    <option value="">-Pilih Poli-</option>
+                                    @foreach ($id_polis as $id_poli)
+                                        <option value="{{ $id_poli->id_poli }}"
+                                            {{ old('id_poli', $dokter->id_poli) == $id_poli->id_poli ? 'selected' : null }}>
+                                            {{ $id_poli->nm_poli }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            @error('nik')
-                                <div class="text-muted">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Edit Data Pasien</button>
+                            <button type="submit" class="btn btn-primary">Edit Data dokter</button>
                         </div>
 
                     </form>

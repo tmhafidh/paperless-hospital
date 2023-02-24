@@ -11,12 +11,15 @@ class RegistrasiPasien extends Model
 
     protected $table = 'registrasi_pasien';
 
+
+
     protected $primaryKey = 'no_rawat';
 
     protected $fillable = [
         'no_rm',
+        'no_rawat',
         'no_registrasi',
-        'id_poli_tujuan',
+        'id_poli',
         'tgl_registrasi',
     ];
 
@@ -28,15 +31,15 @@ class RegistrasiPasien extends Model
     }
 
 
-    //     // relasi one to one ke tabel poli
-    //     public function Poli()
-    //     {
-    //         return $this->hasOne('App\Models\Poli', 'id_poli_tujuan');
-    //     }
+    // relasi one to one ke tabel poli
+    public function Poli()
+    {
+        return $this->hasOne('App\Models\Poli', 'id_poli');
+    }
 
-    //     // relasi one to one ke tabel periksa pasien
-    //     public function PeriksaPasien()
-    //     {
-    //         return $this->hasOne('App\Models\PeriksaPasien', 'no_rawat');
-    //     }
+    // relasi one to one ke tabel periksa pasien
+    public function PeriksaPasien()
+    {
+        return $this->hasOne('App\Models\PeriksaPasien', 'no_rawat');
+    }
 }

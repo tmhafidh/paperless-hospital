@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PoliController;
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegistrasiPasienController;
+
 
 
 /*
@@ -48,7 +51,15 @@ Route::prefix('/dokter')->group(function () {
     Route::get('/', [DokterController::class, 'index'])->name('dokter.index');
     Route::get('/create', [DokterController::class, 'create'])->name('dokter.create');
     Route::post('/store', [DokterController::class, 'store'])->name('dokter.store');
-    Route::get('/edit/{id_poli}', [DokterController::class, 'edit'])->name('dokter.edit');
-    Route::put('/update/{id_poli}', [DokterController::class, 'update'])->name('dokter.update');
-    Route::get('/{id_poli}/delete', [DokterController::class, 'destroy'])->name('dokter.delete');
+    Route::get('/edit/{kd_dokter}', [DokterController::class, 'edit'])->name('dokter.edit');
+    Route::put('/update/{kd_dokter}', [DokterController::class, 'update'])->name('dokter.update');
+    Route::get('/{kd_dokter}/delete', [DokterController::class, 'destroy'])->name('dokter.delete');
 });
+
+// RegistrasiPasien Route
+Route::get('/registrasi', [RegistrasiPasienController::class, 'index'])->name('registrasi.index');
+Route::get('/registrasi/create', [RegistrasiPasienController::class, 'create'])->name('registrasi.create');
+Route::post('/registrasi/store', [RegistrasiPasienController::class, 'store'])->name('registrasi.store');
+Route::get('/registrasi/edit/{no_rawat}', [RegistrasiPasienController::class, 'edit'])->name('registrasi.edit');
+Route::put('/registrasi/update/{no_rawat}', [RegistrasiPasienController::class, 'update'])->name('registrasi.update');
+Route::get('/registrasi/{no_rawat}/delete', [RegistrasiPasienController::class, 'destroy'])->name('registrasi.delete');
