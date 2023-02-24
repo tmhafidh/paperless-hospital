@@ -28,11 +28,11 @@
                 </a>
             </li><!-- End Dokter Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>Poli</span>
+            <li class="nav-item {{ request()->is('poli.index') ? 'active' : ' ' }}">
+                <a class="nav-link collapsed" href="{{ route('poli.index') }}">
+                    <i class="bi bi-person"></i><span>Poli</span>
                 </a>
-            </li><!-- End Poli Nav -->
+            </li><!-- End Pasient Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->

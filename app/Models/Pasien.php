@@ -19,10 +19,10 @@ class Pasien extends Model
         'nik'
     ];
 
-    // relasi one to many
+    // relasi many to many ke tabel registrasi pasien
 
     public function RegistrasiPasien()
     {
-        return $this->hasMany('App\Models\RegistrasiPasien', 'no_rm');
+        return $this->belongsToMany('App\Models\RegistrasiPasien', 'no_rm');
     }
 }

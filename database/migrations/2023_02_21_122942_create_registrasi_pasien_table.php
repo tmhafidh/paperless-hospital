@@ -18,7 +18,7 @@ class CreateRegistrasiPasienTable extends Migration
             $table->foreign('no_rm')->references('no_rm')->on('pasien');
             $table->string('no_registrasi', 3);
             $table->string('no_rawat', 17)->primary();
-            $table->string('id_poli');
+            $table->unsignedBigInteger('id_poli');
             $table->foreign('id_poli')->references('id_poli')->on('poli');
             $table->date('tgl_registrasi');
             $table->timestamps();

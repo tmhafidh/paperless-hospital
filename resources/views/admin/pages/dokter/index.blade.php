@@ -6,37 +6,34 @@
         <div class="col-12">
             <div class="card recent-sales overflow-auto">
                 <div class="card-body">
-                    <h4 class="card-title">Data Pasien</h4>
-                    <a href="{{ route('pasien.create') }}" class="btn btn-info btn-sm">
-                        <i class="fa fa-picture-o">Tambah Pasien</i>
+                    <h4 class="card-title">Data Dokter</h4>
+                    <a href="{{ route('dokter.create') }}" class="btn btn-info btn-sm">
+                        <i class="fa fa-picture-o">Tambah Data Dokter</i>
                     </a>
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr>
-                                <th scope="col">No.RM</th>
+                                <th scope="col">Kode Dokter</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">NIK</th>
-                                <th scope="col">Registrasi</th>
-                                <th scope="col">Action</th>
-                            </tr>
+                                <th scope="col">Poli< /th>
                         </thead>
                         <tbody>
-                            @forelse ($pasiens as $pasien)
+                            @forelse ($dokters as $dokter)
                                 <tr>
-                                    <td>{{ $pasien->no_rm }}</td>
-                                    <td>{{ $pasien->nama_pasien }}</td>
-                                    <td>{{ $pasien->nik }}</td>
+                                    <td>{{ $dokter->id_dokter }}</td>
+                                    <td>{{ $dokter->nm_dokter }}</td>
+                                    <td>{{ $dokter->$id_poli }}</td>
                                     <td>
-                                        {{-- <a href="{{ route('register.pasien', $pasien->no_rm) }}" class="btn btn-info btn-sm"> --}}
+                                        {{-- <a href="{{ route('register.dokter', $dokter->no_rm) }}" class="btn btn-info btn-sm"> --}}
                                         <a href="#" class="btn btn-info btn-sm">
                                             <i class="fa fa-picture-o">Registrasi</i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('pasien.edit', $pasien->no_rm) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('dokter.edit', $dokter->no_rm) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-picture-o">Edit</i>
                                         </a>
-                                        <a href="{{ route('pasien.delete', $pasien->no_rm) }}" class="btn btn-sm btn-danger"
+                                        <a href="{{ route('dokter.delete', $dokter->no_rm) }}" class="btn btn-sm btn-danger"
                                             onclick="return confirm('yakin?');">Delete</a>
                                     </td>
                                 </tr>
@@ -50,7 +47,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div><!-- End Recent Sales -->
     @endsection

@@ -16,7 +16,7 @@ class CreateDokterTable extends Migration
         Schema::create('dokter', function (Blueprint $table) {
             $table->string('kd_dokter', 4)->primary();
             $table->string('nm_dokter');
-            $table->string('id_poli');
+            $table->unsignedBigInteger('id_poli');
             $table->foreign('id_poli')->references('id_poli')->on('poli');
             $table->timestamps();
         });

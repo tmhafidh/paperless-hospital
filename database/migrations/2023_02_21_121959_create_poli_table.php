@@ -14,7 +14,7 @@ class CreatePoliTable extends Migration
     public function up()
     {
         Schema::create('poli', function (Blueprint $table) {
-            $table->string('id_poli', 5)->primary();
+            $table->id('id_poli');
             $table->string('nm_poli');
             $table->timestamps();
         });

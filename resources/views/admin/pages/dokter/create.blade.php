@@ -5,7 +5,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Tambah Pasien</h5>
+                    <h5 class="card-title">Tambah Data Dokter</h5>
                     <form action="{{ Route('pasien.store') }}" method="POST">
                         @csrf
                         <div class="row mb-3">
