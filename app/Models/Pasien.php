@@ -14,7 +14,6 @@ class Pasien extends Model
     protected $primaryKey = 'no_rm';
 
     protected $fillable = [
-        'no_rm',
         'nama_pasien',
         'nik'
     ];

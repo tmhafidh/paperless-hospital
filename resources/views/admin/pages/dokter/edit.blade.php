@@ -5,7 +5,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Edit Data dokter ({{ $dokter->nama_dokter }})</h5>
+                    <h5 class="card-title">Edit Data Dokter ({{ $dokter->nm_dokter }})</h5>
                     <form action="{{ Route('dokter.update', $dokter->kd_dokter) }}" method="POST">
                         @method('PUT')
                         @csrf
@@ -14,7 +14,7 @@
                             <div class="col-sm-10">
                                 <input type="text" name="kd_dokter"
                                     value="{{ old('kd_dokter') ? old('kd_dokter') : $dokter->kd_dokter }}"
-                                    class="form-control @error('kd_dokter') is-invalid @enderror">
+                                    class="form-control @error('kd_dokter') is-invalid @enderror" readonly>
                             </div>
                             @error('_dokter')
                                 <div class="text-muted">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Edit Data dokter</button>
+                            <button type="submit" class="btn btn-primary">Edit Data Dokter</button>
                         </div>
 
                     </form>

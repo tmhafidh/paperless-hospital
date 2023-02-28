@@ -8,6 +8,7 @@ use App\Models\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\DokterRequest;
+use Illuminate\Support\Facades\DB;
 
 class DokterController extends Controller
 {
@@ -30,7 +31,21 @@ class DokterController extends Controller
     public function create()
     {
         $id_polis = Poli::all();
-        return view('admin.pages.dokter.create', compact('id_polis'));
+
+        $kd_dokter = Dokter::all();
+
+        $q = DB::table('dokter')->select(DB::raw('MAX(RIGHT(kd_dokter,3)) as kode'))->first();
+
+        $kd = "";
+        if ($q->kode) {
+            $tmp = ((int)$q->kode) + 1;
+            $kd = sprintf("%03s", $tmp);
+        } else {
+            $kd = "001";
+        }
+        // dd($kd);
+
+        return view('admin.pages.dokter.create', compact('id_polis', 'kd'));
     }
 
     /**

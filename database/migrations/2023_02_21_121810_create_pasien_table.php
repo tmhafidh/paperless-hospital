@@ -14,7 +14,7 @@ class CreatePasienTable extends Migration
     public function up()
     {
         Schema::create('pasien', function (Blueprint $table) {
-            $table->double('no_rm')->primary();
+            $table->id('no_rm');
             $table->string('nama_pasien');
             $table->string('nik', 17);
             $table->timestamps();

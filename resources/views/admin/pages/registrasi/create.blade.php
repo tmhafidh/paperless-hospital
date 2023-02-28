@@ -22,9 +22,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Nomor Registrasi</label>
+                            <label for="no_registrasi" class="col-sm-2 col-form-label">Nomor Registrasi</label>
                             <div class="col-sm-10">
-                                <input type="number" name="no_registrasi" value="{{ old('no_registrasi') }}"
+                                <input type="text" name="no_registrasi" readonly value="{{ $kd }}"
                                     class="form-control @error('no_registrasi') is-invalid @enderror">
                             </div>
                             @error('no_registrasi')
@@ -34,9 +34,9 @@
                             @enderror
                         </div>
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Nomor Rawat</label>
+                            <label for="no_rawat" class="col-sm-2 col-form-label">Nomor Rawat</label>
                             <div class="col-sm-10">
-                                <input type="number" name="no_rawat" value="{{ old('no_rawat') }}"
+                                <input type="text" name="no_rawat" value="{{ date('Y/m/d') . '/' . $kd }}" readonly
                                     class="form-control @error('no_rawat') is-invalid @enderror">
                             </div>
                             @error('no_rawat')
@@ -61,8 +61,8 @@
                         <div class="row mb-3">
                             <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Registrasi</label>
                             <div class="col-sm-10">
-                                <input type="date" class="form-control" name="tgl_registrasi"
-                                    value="{{ old('tgl_registrasi') }}"
+                                <input type="text" class="form-control" name="tgl_registrasi"
+                                    value="{{ date('Y-m-d') }}" readonly
                                     @error('tgl_registrasi')
                                     is-invalid
                                 @enderror">

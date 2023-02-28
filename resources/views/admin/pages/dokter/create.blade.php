@@ -11,7 +11,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">ID Dokter</label>
                             <div class="col-sm-10">
-                                <input type="text" name="kd_dokter" value="{{ old('kd_dokter') }}"
+                                <input type="text" name="kd_dokter" readonly="" value="{{ 'D' . $kd }}"
                                     class="form-control @error('kd_dokter') is-invalid @enderror">
                             </div>
                             @error('kd_dokter')
@@ -23,7 +23,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Nama Dokter</label>
                             <div class="col-sm-10">
-                                <input type="text" name="nm_dokter" value="{{ old('kd_dokter') }}"
+                                <input type="text" name="nm_dokter" value="{{ old('nm_dokter') }}" autofocus
                                     class="form-control @error('nm_dokter') is-invalid @enderror">
                             </div>
                             @error('nm_dokter')

@@ -6,6 +6,7 @@ use App\Http\Controllers\PoliController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PeriksaPasienController;
 use App\Http\Controllers\RegistrasiPasienController;
 
 
@@ -57,9 +58,21 @@ Route::prefix('/dokter')->group(function () {
 });
 
 // RegistrasiPasien Route
-Route::get('/registrasi', [RegistrasiPasienController::class, 'index'])->name('registrasi.index');
-Route::get('/registrasi/create', [RegistrasiPasienController::class, 'create'])->name('registrasi.create');
-Route::post('/registrasi/store', [RegistrasiPasienController::class, 'store'])->name('registrasi.store');
-Route::get('/registrasi/edit/{no_rawat}', [RegistrasiPasienController::class, 'edit'])->name('registrasi.edit');
-Route::put('/registrasi/update/{no_rawat}', [RegistrasiPasienController::class, 'update'])->name('registrasi.update');
-Route::get('/registrasi/{no_rawat}/delete', [RegistrasiPasienController::class, 'destroy'])->name('registrasi.delete');
+Route::prefix('/registrasi')->group(function () {
+    Route::get('', [RegistrasiPasienController::class, 'index'])->name('registrasi.index');
+    Route::get('/create', [RegistrasiPasienController::class, 'create'])->name('registrasi.create');
+    Route::post('/store', [RegistrasiPasienController::class, 'store'])->name('registrasi.store');
+    Route::get('/edit/{no_rawat}', [RegistrasiPasienController::class, 'edit'])->name('registrasi.edit');
+    Route::put('/update/{no_rawat}', [RegistrasiPasienController::class, 'update'])->name('registrasi.update');
+    Route::get('/{no_rawat}/delete', [RegistrasiPasienController::class, 'destroy'])->name('registrasi.delete');
+});
+
+// Route Periksa Pasien
+Route::prefix('/periksa')->group(function () {
+    Route::get('', [PeriksaPasienController::class, 'index'])->name('periksa.index');
+    Route::get('/create', [PeriksaPasienController::class, 'create'])->name('periksa.create');
+    Route::post('/store', [PeriksaPasienController::class, 'store'])->name('periksa.store');
+    Route::get('/edit/{no_rawat}', [PeriksaPasienController::class, 'edit'])->name('periksa.edit');
+    Route::put('/update/{no_rawat}', [PeriksaPasienController::class, 'update'])->name('periksa.update');
+    Route::get('/{no_rawat}/delete', [PeriksaPasienController::class, 'destroy'])->name('periksa.delete');
+});

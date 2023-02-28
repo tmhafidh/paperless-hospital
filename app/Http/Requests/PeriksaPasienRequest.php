@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
-class PasienRequest extends FormRequest
+class PeriksaPasienRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +25,9 @@ class PasienRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_pasien' => 'required|max:255',
-            'nik' => 'required|max:17',
+            'no_rawat' => 'required',
+            'kd_dokter' => 'required',
+            'ket_diagnosa' => 'required',
         ];
     }
 }

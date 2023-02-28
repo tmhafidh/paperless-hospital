@@ -25,21 +25,23 @@ class RegistrasiPasien extends Model
 
 
     // relasi many to many ke tabel pasien
-    public function Pasien()
-    {
-        return $this->belongsToMany('App\Models\Pasien', 'no_rm');
-    }
+    // public function Pasien()
+    // {
+    //     return $this->belongsToMany('App\Models\Pasien', 'no_rm');
+    // }
 
 
-    // relasi one to one ke tabel poli
-    public function Poli()
-    {
-        return $this->hasOne('App\Models\Poli', 'id_poli');
-    }
+    // // relasi one to one ke tabel poli
+    // public function Poli()
+    // {
+    //     return $this->hasOne('App\Models\Poli', 'id_poli');
+    // }
 
-    // relasi one to one ke tabel periksa pasien
-    public function PeriksaPasien()
-    {
-        return $this->hasOne('App\Models\PeriksaPasien', 'no_rawat');
-    }
+
+
+    // // relasi one to one ke tabel periksa pasien
+    // public function PeriksaPasien()
+    // {
+    //     return $this->hasOne('App\Models\PeriksaPasien', 'no_rawat');
+    // }
 }

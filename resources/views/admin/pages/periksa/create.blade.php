@@ -5,28 +5,26 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Edit Data registrasi </h5>
-                    <form action="{{ Route('registrasi.update', $registrasi->no_rawat) }}" method="POST">
-                        @method('PUT')
+                    <h5 class="card-title">Periksa Pasien</h5>
+                    <form action="{{ url('/registrasi/store') }}" method="POST">
                         @csrf
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Nama Pasien</label>
+                            <label class="col-sm-2 col-form-label">Nomor Rawat</label>
                             <div class="col-sm-10">
-                                <select type="text" name="no_rm" class="form-control">
+                                <select type="text" name="no_rawat" class="form-control">
                                     <option value="">-Pilih Pasien-</option>
-                                    @foreach ($no_rm as $no_rm)
-                                        <option value="{{ $no_rm->no_rm }}"
-                                            {{ old('no_rm', $no_rm->no_rm) == $no_rm->no_rm ? 'selected' : null }}>
-                                            {{ $no_rm->nama_pasien }}</option>
+                                    @foreach ($no_rawats as $no_rawat)
+                                        <option value="{{ $no_rawats->no_rawat }}"
+                                            {{ old('no_rawat') == $no_rawats->no_rawat ? 'selected' : null }}>
+                                            {{ $no_rawat->nama_pasien }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Nomor Registrasi</label>
                             <div class="col-sm-10">
-                                <input type="number" name="no_registrasi"
-                                    value="{{ old('no_registrasi') ? old('no_registrasi') : $registrasi->no_registrasi }}"
+                                <input type="number" name="no_registrasi" value="{{ old('no_registrasi') }}"
                                     class="form-control @error('no_registrasi') is-invalid @enderror">
                             </div>
                             @error('no_registrasi')
@@ -38,8 +36,7 @@
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Nomor Rawat</label>
                             <div class="col-sm-10">
-                                <input type="number" name="no_rawat"
-                                    value="{{ old('no_rawat') ? old('no_rawat') : $registrasi->no_rawat }}"
+                                <input type="number" name="no_rawat" value="{{ old('no_rawat') }}"
                                     class="form-control @error('no_rawat') is-invalid @enderror">
                             </div>
                             @error('no_rawat')
@@ -55,7 +52,7 @@
                                     <option value="">-Pilih Poli-</option>
                                     @foreach ($id_polis as $id_poli)
                                         <option value="{{ $id_poli->id_poli }}"
-                                            {{ old('id_poli', $registrasi->id_poli) == $id_poli->id_poli ? 'selected' : null }}>
+                                            {{ old('id_poli') == $id_poli->id_poli ? 'selected' : null }}>
                                             {{ $id_poli->nm_poli }}</option>
                                     @endforeach
                                 </select>
@@ -65,7 +62,7 @@
                             <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Registrasi</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" name="tgl_registrasi"
-                                    value="{{ old('tgl_registrasi') ? old('tgl_registrasi') : $registrasi->tgl_registrasi }}"
+                                    value="{{ old('tgl_registrasi') }}"
                                     @error('tgl_registrasi')
                                     is-invalid
                                 @enderror">
@@ -73,8 +70,9 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Edit Data registrasi</button>
+                            <button type="submit" class="btn btn-primary">Registrasi Pasien</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
 
                     </form>
-                @endsection
+                @endsection --}}

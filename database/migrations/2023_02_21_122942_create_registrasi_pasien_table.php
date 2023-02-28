@@ -14,7 +14,7 @@ class CreateRegistrasiPasienTable extends Migration
     public function up()
     {
         Schema::create('registrasi_pasien', function (Blueprint $table) {
-            $table->double('no_rm');
+            $table->unsignedBigInteger('no_rm');
             $table->foreign('no_rm')->references('no_rm')->on('pasien');
             $table->string('no_registrasi', 3);
             $table->string('no_rawat', 17)->primary();

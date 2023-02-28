@@ -7,6 +7,7 @@ use App\Models\Pasien;
 use Illuminate\Http\Request;
 use App\Models\RegistrasiPasien;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RegistrasiPasienRequest;
 
 class RegistrasiPasienController extends Controller
@@ -29,9 +30,27 @@ class RegistrasiPasienController extends Controller
      */
     public function create()
     {
-        $id_poli = Poli::all();
-        $no_rm = Pasien::all();
-        return view('admin.pages.registrasi.create')->with('id_polis', $id_poli)->with('no_rms', $no_rm);
+        $id_polis = Poli::all();
+
+        $no_rms = Pasien::all();
+
+        $no_registrasi = RegistrasiPasien::all();
+
+        $q = DB::table('registrasi_pasien')->select(DB::raw('MAX(RIGHT(no_registrasi,3)) as kode'))->first();
+
+        $kd = "";
+        if ($q->kode) {
+            $tmp = ((int)$q->kode) + 1;
+            $kd = sprintf("%03s", $tmp);
+        } else {
+            $kd = "001";
+        }
+
+
+        // dd($kd);
+
+        // return view('admin.pages.registrasi.create')->with('id_polis', $id_poli)->with('no_rms', $no_rm);
+        return view('admin.pages.registrasi.create', compact('id_polis', 'no_rms', 'kd'));
     }
 
     /**
@@ -40,7 +59,7 @@ class RegistrasiPasienController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegistrasiPasienRequest $request)
     {
         $registrasi = $request->all();
 
@@ -79,8 +98,10 @@ class RegistrasiPasienController extends Controller
         return view('admin.pages.registrasi.edit')->with(
             [
                 'registrasi' => $registrasi,
-                'id_poli' => Poli::all(),
+                'id_polis' => Poli::all(),
                 'no_rm' => Pasien::all(),
+                'no_registrasi' => RegistrasiPasien::all(),
+                'no_rawat' => RegistrasiPasien::all(),
             ]
         );
     }
@@ -92,7 +113,7 @@ class RegistrasiPasienController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $no_rawat)
+    public function update(RegistrasiPasienRequest $request, $no_rawat)
     {
         $registrasi = RegistrasiPasien::find($no_rawat);
         $registrasi->no_rm = $request->no_rm;

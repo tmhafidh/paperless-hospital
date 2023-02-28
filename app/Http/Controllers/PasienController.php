@@ -17,6 +17,9 @@ class PasienController extends Controller
     public function index()
     {
         $pasiens = Pasien::all();
+
+        //
+
         return view('admin.pages.pasien.index')->with('pasiens', $pasiens);
     }
 

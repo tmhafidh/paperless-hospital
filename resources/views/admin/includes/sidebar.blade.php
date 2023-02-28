@@ -16,7 +16,7 @@
                 </a>
             </li><!-- End Pasient Nav -->
             <li class="nav-item {{ request()->is('dashboard') ? 'active' : ' ' }}">
-                <a class="nav-link collapsed" href="3">
+                <a class="nav-link collapsed" href="{{ route('periksa.index') }}">
                     <i class="bi bi-person"></i><span>Pemeriksaan Pasien</span>
                 </a>
             </li><!-- End Pasient Nav -->
